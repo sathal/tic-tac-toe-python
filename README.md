@@ -8,4 +8,4 @@ This program requires Python 2
 
 ## Motivation
 
-Practice for first GitHub repository
+Practice for creating first GitHub repository
