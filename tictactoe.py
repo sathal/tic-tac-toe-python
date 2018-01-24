@@ -13,8 +13,15 @@ def drawBoard():
     print("_|_|_")
     print(board['ll'] + "|" + board['lm'] + "|" + board['lr'])
 
+# Determine if the user would like to quit the game
+def quitGame(move):
+    if(move == "quit"):
+        return True
+    else:
+        return False
+
 # Check that the user input is valid input
-def isValidInput(move):
+def isValidMove(move):
     if(move not in board.keys()):
         return False
     else:
@@ -162,12 +169,15 @@ print("\tmr = Middle Right")
 print("\tll = Lower Left")
 print("\tlm = Lower Middle")
 print("\tlr = Lower Right")
+print("\ttype \"quit\" to exit game")
 
 while True:
     drawBoard()
     print(turn + "'s turn: ")
     move = raw_input()
-    if(isValidInput(move) == False):
+    if(quitGame(move) == True):
+        sys.exit()
+    if(isValidMove(move) == False):
         print(move + " is not a valid move!")
         continue
     elif(isLegalMove(move) == False):
